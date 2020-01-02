@@ -41,12 +41,14 @@ public class Player {
             vx = 0;
         }
         
-        ox = x;
-        oy = y;
-        ovy = vy;
-        vy += 0.5;
-        y += vy;
-        x += vx;
+        if (!shouldExplode) {
+            ox = x;
+            oy = y;
+            ovy = vy;
+            vy += 0.5;
+            y += vy;
+            x += vx;
+        }
         
        // System.out.println(vx);
         falling = true;
@@ -108,7 +110,16 @@ public class Player {
             x = 0;
         }
         
-        if (x >= 1050 - w && number == g.l.num) {
+        if (k.keys[82]) {
+            x = 0;
+            y = 670;
+            number = 1;
+            for (int i = 0 ; i < g.blocks.size() ; i++) {
+                g.blocks.get(i).collected = false;
+            }
+        }
+        
+        if (x >= 1050 - w && y >= 670 && number == g.l.num) {
             g.l.l++;
             g.level++;
             g.blocks = g.l.generateLevel();
@@ -140,16 +151,17 @@ public class Player {
         gr.setColor(new Color(220, 220, 0));
         gr.fillOval((int) (x - sz), (int) (y - sz), sz * 2, sz * 2);
         if (mode == 1) {
-            sz += 16;
+            sz += 40;
             if (sz > 800) {
                 mode = 2;
             }
         }
         else {
-            sz -= 16;
+            sz -= 40;
             if (sz <= 0) {
                 sz = 0;
                 shouldExplode = false;
+                vy = -28;
                 bonusPoints ++;
                 number = 1;
                 mode = 1;
