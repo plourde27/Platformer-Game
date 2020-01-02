@@ -5,6 +5,7 @@ public class Game implements Runnable{
     double vy;
     boolean falling;
     int level;
+    Level l;
     Player player;
     ArrayList<Block> blocks;
     public Game(){
@@ -14,7 +15,7 @@ public class Game implements Runnable{
         falling = true;
         level = 1;
         player = new Player();
-        Level l = new Level(level);
+        l = new Level(level);
         blocks = l.generateLevel();
     }
     public void run(){

@@ -15,7 +15,7 @@ public class main{
         
         frame.add(screen);
         
-        frame.setBounds(0,0,1000,720);
+        frame.setBounds(0,0,1080,740);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
         new Thread(game).start();
