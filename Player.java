@@ -16,8 +16,8 @@ public class Player {
     int mode;
     
     public Player() {
-        x = 300;
-        y = 200;
+        x = 0;
+        y = 670;
         w = 20;
         h = 20;
         falling = true;

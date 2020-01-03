@@ -7,7 +7,7 @@ public class Display extends JComponent{
     Game game;
     Mouse mouse;
     Keyboard keyboard;
-    String scene = "Play";
+    String scene = "Menu";
     int[][] pos;
     double[] fac;
     int xpos;
