@@ -87,6 +87,9 @@ public class Display extends JComponent{
             
             g.drawString(Integer.toString(game.l.num), 1052, 681);
             
+            g.setFont(new Font("monospace", Font.PLAIN, 14));
+            
+            g.drawString(game.l.instr, 100, 200);
             
             if (game.player.shouldExplode) {
                 game.player.explode(g);

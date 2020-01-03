@@ -3,10 +3,12 @@ import java.util.*;
 public class Level {
     int l;
     int num;
+    String instr = "";
     
     public Level(int lv) {
         l = lv;
         num = -1;
+        instr = "";
     }
     
     public ArrayList<Block> generateLevel() {
@@ -14,8 +16,11 @@ public class Level {
         
         String[] grid = new String[18];
         
+        instr = "";
+        
         if (l == 1) {
-            num = 8;
+            num = 1;
+            instr = "Welcome to the Number Platformer! Use the arrow keys to move. Your goal is to reach the right side of the level.";
             String[] l1 = {
                 "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "x..................................x",
@@ -37,14 +42,15 @@ public class Level {
                 "x..................................x",
                 "x..................................x",
                 "x..................................x",
-                "x..................................x",
-                "x................xxx...............x",
-                "..................7.................",
+                "x.................x................x",
+                "x.................x................x",
+                "..................x.................",
                 "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"};
             grid = l1;
         }
         else if (l == 2) {
-            num = 12;
+            instr = "In order to pass to the next level, your number must match the number indicated on the gold block.";
+            num = 7;
             String[] l2 = {
                 "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "x..................................x",
@@ -64,15 +70,16 @@ public class Level {
                 "x..................................x",
                 "x..................................x",
                 "x..................................x",
-                "x.............3....................x",
-                "x............xxx........3..........x",
-                "x......................xxx.........x",
                 "x..................................x",
-                "....................................",
+                "x..................................x",
+                "x..................................x",
+                "x..................................x",
+                ".............3..........3...........",
                 "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"};
             grid = l2;
         }
         else if (l == 3) {
+            instr = "If you are jumping and hit a number block, your number will multiply by the number.";
             num = 63;
             String[] l3 = {
                 "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -93,7 +100,7 @@ public class Level {
                 "x.........x........................x",
                 "x..................................x",
                 "x..................................x",
-                "x............x.....................x",
+                "x...........x......................x",
                 "x.......9..........................x",
                 "x......xx..........................x",
                 "x..................................x",
@@ -102,6 +109,7 @@ public class Level {
             grid = l3;
         }
         else if (l == 4) {
+            instr = "An arrow block propels you rapidly upward";
             num = 5;
             String[] l4 = {
                 "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -189,6 +197,7 @@ public class Level {
             grid = l6;
         }
         else if (l == 7) {
+            instr = "If your number becomes greater than 1000, you will get a brief jump boost,\nand your number will be reset to one.";
             num = 32;
             String[] l7 = {
                 "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -383,7 +392,6 @@ public class Level {
                 }
             }
         }
-        
         
         return blocks;
     }
